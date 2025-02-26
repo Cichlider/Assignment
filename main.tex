@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\noindent 0) Until Feb 25 20:30 I have not got any help from anyone. The only assistance I get is from Grammarly to fix my grammar problems.
+
+\bigskip
+
+\noindent 1) (5 points) Use the real number axioms to prove that if \( a < b \) and \( c < 0 \), then \( ac > bc \).
+
+\bigskip
+
+\noindent If you have an equation, you do not need to justify that doing the same thing to both sides preserves equality. Any other steps in your argument must be justified!
+
+\bigskip
+
+\noindent \textbf{Proof:}
+
+\begin{align}
+    & a < b \Rightarrow b - a \in P  \quad \text{(Definition of Order)} \\
+    & c < 0 \Rightarrow -c \in P  \quad \text{(Definition of Order)} \\
+    & (b-a) \in P, \quad (-c) \in P \\
+    & \Rightarrow (b-a)(-c) \in P  \quad \text{(Closure under multiplication, P12)} \\
+    & \Rightarrow b(-c) + (-a)(-c) \in P  \quad \text{(Distributive Property, P9)} \\
+    & \Rightarrow -bc + ac \in P  \quad \text{(Commutativity of multiplication)} \\
+    & \Rightarrow ac - bc \in P  \quad \text{(Additive Inverse, P4)} \\
+    & \Rightarrow ac > bc  \quad \text{(Definition of Order)}
+\end{align}
+
+\bigskip
+\bigskip
+\bigskip
+\noindent 2) (5 points) There is a puzzle consisting of three spindles, with \( n \) concentric rings of decreasing diameter stacked on the first. A ring at the top of a stack may be moved from one spindle to another spindle, provided that it is not placed on top of a smaller ring. Prove that the entire stack of rings can be moved onto spindle 3 in \( 2^n -1 \) moves, and that this cannot be done in fewer than \( 2^n -1 \) moves.
+
+\bigskip
+
+\noindent \textbf{Proof:}
+
+\bigskip
+
+We prove the statement by mathematical induction.
+
+\text When \( n = 1 \), there is only one disk
+
+Just move the top disk from rod 1 to rod 3 
+
+exactly \( 1 = 2^1 - 1 \) move. The claim holds.
+
+\bigskip
+
+\text Assume that \(\forall k \geq 1 \),$k\in N$ the minimum number of moves required to transfer \( k \) rings from spindle 1 to spindle 3 is:
+\[
+T(k) = 2^k - 1.
+\]
+That is, we assume we can transfer \( k \) rings using the recursive strategy in exactly \( 2^k - 1 \) moves.
+
+\bigskip
+
+\textbf{Inductive Step:} Consider \( k+1 \) rings. The strategy follows:
+
+1. Move the top \( k \) rings from spindle 1 to spindle 2 using \( T(k) \) moves.
+2. Move the largest ring (bottom ring) from spindle 1 to spindle 3 in one move.
+3. Move the \( k \) rings from spindle 2 to spindle 3 using \( T(k) \) moves.
+
+Thus, the total number of moves required is:
+\[
+T(k+1) = T(k) + 1 + T(k) = 2T(k) + 1.
+\]
+Substituting \( T(k) = 2^k - 1 \), we obtain:
+\[
+T(k+1) = 2(2^k - 1) + 1 = 2^{k+1} - 1.
+\]
+
+By the principle of mathematical induction, the formula \( T(n) = 2^n - 1 \) holds for all \( n \geq 1 \).
+
+\bigskip
+
+\textbf{Optimality:} To show that \( 2^n - 1 \) is the minimal number of moves required, we use a lower bound argument. Each ring must be moved at least once, and each ring except the largest must be temporarily placed on an auxiliary spindle. Since each ring must be moved optimally, we see that any strategy must follow the recursive approach outlined above, leading to the same number of moves.
+
+
+\end{document}
